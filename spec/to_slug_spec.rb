@@ -71,7 +71,7 @@ describe String, "to_slug" do
   end
 
   it "converts accents for the letter B" do
-    "ḂƁ Ḅ Ḇ Ƃ Ƅ".to_slug.should == "b-b-b-b-b"
+    "Ḃ Ɓ Ḅ Ḇ Ƃ Ƅ".to_slug.should == "b-b-b-b-b-b"
   end
 
   it "converts accents for the letter C" do
