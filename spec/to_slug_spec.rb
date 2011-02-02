@@ -5,7 +5,7 @@ require 'to_slug'
 describe String, "to_slug" do
 
   it "replaces spaces with dashes" do
-    "This is a string".to_slug == "this-is-a-string"
+    "This is a string".to_slug.should == "this-is-a-string"
   end
 
   it "converts accented characters to a close ASCII alternative" do
