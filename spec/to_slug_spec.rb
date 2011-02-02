@@ -286,5 +286,8 @@ describe String, "to_slug" do
     "ź ẑ ż ž ȥ ẓ ẕ ƶ".to_slug.should == "z-z-z-z-z-z-z-z"
   end
   
-  
+  it "removes unknown accents" do
+    "this Ð Þ Ə Ɣ Ɩ Ƣ Ƨ Ʃ Ʊ Ʒ Ǯ Ƹ Ȝ ƿ Ȣ ð þ ə ɣ ɩ ƣ ƨ ʃ is ƪ ʊ ʒ ǯ ƹ ƺ ȝ Ƿ ȣ Ǳ ǲ ǳ a Ǆ ǅ ǆ Ǉ ǈ ǉ Ǌ ǋ ǌ ĸ ƍ ƛ ƾ ƻ Ƽ ƽ string".to_slug.should == "this-is-a-string"
+  end
+
 end

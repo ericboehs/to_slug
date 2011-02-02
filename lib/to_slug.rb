@@ -9,6 +9,7 @@ class String # This reopns the string class
 
     # Define which accents map to which ascii characters
     accents = {
+      # Uppercase
       'A'   => %w(À Á Â Ã Ā Ă Ȧ Ả Ä Å Ǎ Ȁ Ȃ Ą Ạ Ḁ Ầ Ấ Ẫ Ẩ Ằ Ắ Ẵ Ẳ Ǡ Ǟ Ǻ Ậ Ặ),
       'AE'  => %w(Æ Ǽ Ǣ),
       'B'   => %w(Ḃ Ɓ Ḅ Ḇ Ƃ Ƅ),
@@ -38,6 +39,7 @@ class String # This reopns the string class
       'Y'   => %w(Ỳ Ý Ŷ Ỹ Ȳ Ẏ Ÿ Ỷ Ƴ Ỵ),
       'Z'   => %w(Ź Ẑ Ż Ž Ȥ Ẓ Ẕ Ƶ),
 
+      # Lowercase
       'a'   => %w(à á â ã ā ă ȧ ä ả å ǎ ȁ ȃ ą ạ ḁ ẚ ầ ấ ẫ ẩ ằ ắ ẵ ẳ ǡ ǟ ǻ ậ ặ),
       'ae'  => %w(æ ǽ ǣ),
       'b'   => %w(ḃ ɓ ḅ ḇ ƀ ƃ ƅ),
@@ -66,6 +68,8 @@ class String # This reopns the string class
       'x'   => %w(ẋ ẍ),
       'y'   => %w(ỳ ý ŷ ỹ ȳ ẏ ÿ ỷ ẙ ƴ ỵ),
       'z'   => %w(ź ẑ ż ž ȥ ẓ ẕ ƶ),
+      
+      # Not sure what to do with these
       ''    => %w(Ð Þ Ə Ɣ Ɩ Ƣ Ƨ Ʃ Ʊ Ʒ Ǯ Ƹ Ȝ ƿ Ȣ ð þ ə ɣ ɩ ƣ ƨ ʃ ƪ ʊ ʒ ǯ ƹ ƺ ȝ Ƿ ȣ Ǳ ǲ ǳ Ǆ ǅ ǆ Ǉ ǈ ǉ Ǌ ǋ ǌ ĸ ƍ ƛ ƾ ƻ Ƽ ƽ)
     }
 
