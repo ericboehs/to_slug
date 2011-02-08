@@ -75,10 +75,15 @@ class String # This reopns the string class
 
 
     # Replace each accent in the string
+    #accents.each do |replacement, accent|
+    #  accent.each do |character|
+    #    string = string.gsub(character, replacement)
+    #  end
+    #end
+
     accents.each do |replacement, accent|
-      accent.each do |character|
-        string = string.gsub(character, replacement)
-      end
+      regex = Regexp.new("[#{accent.join("|")}]")
+      string = string.gsub(regex, replacement)
     end
 
     # Convert underscores to dashs
