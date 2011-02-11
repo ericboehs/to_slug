@@ -86,8 +86,8 @@ class String # This reopns the string class
       string = string.gsub(regex, replacement)
     end
 
-    # Convert underscores to dashs
-    string = string.gsub(/[_]/,"-")
+    # Convert underscores and periods to dashs
+    string = string.gsub(/[_|.]/,"-")
 
     # Remove any characters that aren't alphanumeric (or a dash)
     string = string.gsub(/[^a-zA-Z0-9 \-]/,"")
@@ -100,6 +100,9 @@ class String # This reopns the string class
 
     # Replace single spaces with a URL friendly dash (-)
     string = string.gsub(/ /,"-")
+
+    # Do a greedy replace on multiple dashes
+    string = string.gsub(/-+/,"-")
 
     # CASE. EVERYTHING. DOWN. (and return since it's the last line)
     string = string.downcase

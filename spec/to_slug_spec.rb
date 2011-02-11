@@ -24,6 +24,10 @@ describe String, "to_slug" do
     "This is an example to_slug".to_slug.should == "this-is-an-example-to-slug"
   end
 
+  it "converts periods to dashes" do
+    "This.is.an.example.string".to_slug.should == "this-is-an-example-string"
+  end
+
   it "removes leading/trailing whitespace" do
     " this is a string ".to_slug.should == "this-is-a-string"
   end
@@ -45,7 +49,7 @@ describe String, "to_slug" do
   end
 
   it "preserves dashes" do
-    "I like Mrs - on my salad".to_slug.should == "i-like-mrs---on-my-salad"
+    "I like Mrs - on my salad".to_slug.should == "i-like-mrs-on-my-salad"
   end
 
   it "downcases all characters" do
