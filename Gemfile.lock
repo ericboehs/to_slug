@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    to_slug (1.0.4)
+    to_slug (1.0.6)
 
 GEM
   remote: http://rubygems.org/
@@ -20,5 +20,5 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  rspec
+  rspec (~> 2.4.0)
   to_slug!

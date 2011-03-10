@@ -1,0 +1,15 @@
+rvm use 1.9.2@to_slug --create
+if [ $(gem list bundler | grep bundler | wc -l) -lt 1 ]; then 
+  gem install bundler --no-ri --no-rdoc
+  echo
+  echo "######################################"
+  echo "###   Welcome to the to_slug gem   ###"
+  echo "######################################"
+  echo
+  echo "To finish installation, run:"
+  echo
+  echo "  bundle"
+  echo
+  echo "Run rake -T for help"
+  echo
+fi
