@@ -85,6 +85,18 @@ class String # This reopns the string class
       regex = Regexp.new("[#{accent.join("|")}]")
       string = string.gsub(regex, replacement)
     end
+    
+    # Strip any HTML decimal/hexadecimal entites
+    string = string.gsub(
+      /           # begin matching a string
+        &         # an ampersand
+        [^ ]     # Match any character except whitespace -- enables matching of hex or decimal
+        [0-9A-F]  # a hex digit
+        {1,4}     # 1 to 4 of them
+        ;         # a semicolon
+      /xi,        # / = end matching; x = allow spaces/comments; i = ignore case; , = end argument
+      ''          # replace matches with nothing (remove matches)
+    )
 
     # Convert underscores and periods to dashs
     string = string.gsub(/[_|.]/,"-")

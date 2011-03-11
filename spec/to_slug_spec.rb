@@ -64,6 +64,11 @@ describe String, "to_slug" do
     "I am a string class yo!".to_slug.should be_kind_of(String)
   end
   
+  it "removes html entities" do
+    "I love my mom & dad; they made me cake".to_slug.should == "i-love-my-mom-dad-they-made-me-cake"
+  end
+  
+  
   # Test all the accents
   
   it "converts accents for the letter A" do
