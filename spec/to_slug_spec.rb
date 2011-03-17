@@ -4,6 +4,10 @@ require 'to_slug'
 
 describe String, "to_slug" do
 
+  it " does not replace spaces with dashes" do
+    "This is a string".to_slug(:delimiter=>" ").should == "this is a string"
+  end
+
   it "replaces spaces with dashes" do
     "This is a string".to_slug.should == "this-is-a-string"
   end

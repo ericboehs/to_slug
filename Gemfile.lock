@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    to_slug (1.0.6)
+    to_slug (1.0.8)
 
 GEM
   remote: http://rubygems.org/

@@ -2,10 +2,11 @@
 
 class String # This reopns the string class
   # Define a new method to convert the string to be url friendly
-  def to_slug
+  def to_slug(options={})
     # This is the input as there are no arguments passed.
     string = self
-
+    
+    delimiter = options[:delimiter].nil? ? "-" : options[:delimiter]
 
     # Define which accents map to which ascii characters
     accents = {
@@ -111,7 +112,7 @@ class String # This reopns the string class
     string.strip!
 
     # Replace single spaces with a URL friendly dash (-)
-    string = string.gsub(/ /,"-")
+    string = string.gsub(/ /,"#{delimiter}")
 
     # Do a greedy replace on multiple dashes
     string = string.gsub(/-+/,"-")
