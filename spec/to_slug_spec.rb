@@ -4,7 +4,7 @@ require 'to_slug'
 
 describe String, "to_slug" do
 
-  it " does not replace spaces with dashes" do
+  it "as an option can use space as a delimiter preserving spaces" do
     "This is a string".to_slug(:delimiter=>" ").should == "this is a string"
   end
 
@@ -26,6 +26,14 @@ describe String, "to_slug" do
 
   it "converts scores to dashes" do
     "This is an example to_slug".to_slug.should == "this-is-an-example-to-slug"
+  end
+
+  it "with the option :preserve_underscore doesn't convert scores to dashes" do
+    "This is an example to_slug".to_slug(:preserve_underscore => true).should == "this-is-an-example-to_slug"
+  end
+
+  it "with the option :preserve_underscore handles multiple underscores" do
+    "This is an example to_______slug".to_slug(:preserve_underscore => true).should == "this-is-an-example-to_slug"
   end
 
   it "converts periods to dashes" do

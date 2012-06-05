@@ -5,7 +5,7 @@ class String # This reopns the string class
   def to_slug(options={})
     # This is the input as there are no arguments passed.
     string = self
-    
+
     delimiter = options[:delimiter].nil? ? "-" : options[:delimiter]
 
     # Define which accents map to which ascii characters
@@ -69,7 +69,7 @@ class String # This reopns the string class
       'x'   => %w(ẋ ẍ),
       'y'   => %w(ỳ ý ŷ ỹ ȳ ẏ ÿ ỷ ẙ ƴ ỵ),
       'z'   => %w(ź ẑ ż ž ȥ ẓ ẕ ƶ),
-      
+
       # Not sure what to do with these
       ''    => %w(Ð Þ Ə Ɣ Ɩ Ƣ Ƨ Ʃ Ʊ Ʒ Ǯ Ƹ Ȝ ƿ Ȣ ð þ ə ɣ ɩ ƣ ƨ ʃ ƪ ʊ ʒ ǯ ƹ ƺ ȝ Ƿ ȣ Ǳ ǲ ǳ Ǆ ǅ ǆ Ǉ ǈ ǉ Ǌ ǋ ǌ ĸ ƍ ƛ ƾ ƻ Ƽ ƽ)
     }
@@ -86,7 +86,7 @@ class String # This reopns the string class
       regex = Regexp.new("[#{accent.join("|")}]")
       string = string.gsub(regex, replacement)
     end
-    
+
     # Strip any HTML decimal/hexadecimal entites
     string = string.gsub(
       /           # begin matching a string
@@ -99,11 +99,16 @@ class String # This reopns the string class
       ''          # replace matches with nothing (remove matches)
     )
 
-    # Convert underscores and periods to dashs
-    string = string.gsub(/[_|.]/,"-")
+    # Convert periods to dashs
+    string = string.gsub(/[.]/,"-")
+
+    unless options[:preserve_underscore]
+      # Convert underscores to dashs
+      string = string.gsub(/[_]/, "-")
+    end
 
     # Remove any characters that aren't alphanumeric (or a dash)
-    string = string.gsub(/[^a-zA-Z0-9 \-]/,"")
+    string = string.gsub(/[^a-zA-Z0-9 \-_]/,"")
 
     # Convert multiple spaces to a single space
     string = string.gsub(/[ ]+/," ")
@@ -116,6 +121,9 @@ class String # This reopns the string class
 
     # Do a greedy replace on multiple dashes
     string = string.gsub(/-+/,"-")
+
+    # Do a greedy replace on multiple underscores
+    string = string.gsub(/_+/,"_")
 
     # CASE. EVERYTHING. DOWN. (and return since it's the last line)
     string = string.downcase
