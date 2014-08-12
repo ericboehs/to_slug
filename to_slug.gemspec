@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Eric Boehs"]
   s.email       = ["ericboehs@gmail.com"]
-  s.homepage    = "https://ericboehs.com"
+  s.homepage    = "https://github.com/ericboehs/to_slug"
   s.summary     = %q{Adds a to_slug method to ruby's String class}
   s.description = %q{This gem makes URL friendly strings out of not so pretty strings.}
 
